@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1116">
+<meta name="description" content="Funduino Assemble – Schaltungen aus dem Funduino-Kit dreidimensional aufbauen, programmieren und ausprobieren, bevor es an die echte Hardware geht.">
+<link rel="icon" href="./favicon.ico">
+<title>Funduino Assemble</title>
+<style>
+/* ==========================================================================
+   Only what the very first paint needs. Everything else is src/ui/app.css,
+   which arrives with the script — so the loading screen is already in its
+   final colours before a single module has run.
+
+     #stage   the WebGL canvas, full window
+     #ui      the interface, a grid laid over the canvas (filled by src/ui/app.js)
+     #hud     the optional frame counter (?stats=1)
+     #boot    the loading screen, removed by src/main.js
+   ========================================================================== */
+html, body { margin: 0; height: 100%; overflow: hidden; background: #0d1116; color: #e9eef4;
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+#stage { position: fixed; inset: 0; }
+#c { display: block; width: 100%; height: 100%; touch-action: none; outline: none; }
+#hud { position: fixed; right: 12px; bottom: 10px; z-index: 60; pointer-events: none; text-align: right; white-space: pre;
+  font: 11px/1.5 ui-monospace, Menlo, Consolas, monospace; color: #a3afbc; text-shadow: 0 1px 3px rgba(0,0,0,.9); }
+#boot { position: fixed; inset: 0; z-index: 90; display: grid; place-content: center; justify-items: center; gap: 18px;
+  background: #0d1116; color: #a3afbc; transition: opacity 380ms ease; }
+#boot.gone { opacity: 0; pointer-events: none; }
+#boot .bm { width: 54px; height: 54px; border-radius: 15px; background: linear-gradient(145deg, #2f6df2, #1c3fa8);
+  display: grid; place-items: center; box-shadow: 0 10px 40px rgba(47,109,242,.4); }
+#boot .bt { font-size: 13px; letter-spacing: .02em; }
+#boot .bar { width: 190px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.1); overflow: hidden; }
+#boot .bar i { display: block; height: 100%; width: 8%; border-radius: 3px; background: #4c8dff; transition: width 300ms ease; }
+noscript { position: fixed; inset: 0; z-index: 99; display: grid; place-content: center; padding: 24px; text-align: center; background: #0d1116; }
+</style>
+  <script type="module" crossorigin src="./assets/main-Qomlqn1q.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/strings-BQlnKA3Z.js">
+  <link rel="modulepreload" crossorigin href="./assets/three-c1c5vYnw.js">
+  <link rel="modulepreload" crossorigin href="./assets/parts-Ck9et2WL.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-BPEA5nmK.css">
+</head>
+<body>
+
+<div id="stage"><canvas id="c"></canvas></div>
+<div id="ui" data-mode="boot"></div>
+<div id="hud" aria-hidden="true"></div>
+
+<div id="boot" role="status" aria-live="polite">
+  <span class="bm"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><g fill="#fff"><circle cx="6" cy="7" r="1.9"/><circle cx="12" cy="7" r="1.9"/><circle cx="18" cy="7" r="1.9"/><circle cx="6" cy="12" r="1.9" opacity=".55"/><circle cx="12" cy="12" r="1.9"/><circle cx="18" cy="12" r="1.9" opacity=".55"/><circle cx="6" cy="17" r="1.9"/><circle cx="12" cy="17" r="1.9" opacity=".55"/><circle cx="18" cy="17" r="1.9"/></g></svg></span>
+  <span class="bt" id="boot-text">Der Arbeitsplatz wird aufgebaut …</span>
+  <span class="bar"><i></i></span>
+</div>
+
+<noscript>Funduino Assemble braucht JavaScript. · Funduino Assemble needs JavaScript.</noscript>
+
+</body>
+</html>
